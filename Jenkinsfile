@@ -8,12 +8,6 @@ pipeline {
     agent none
     stages {
         stage('Build Alpine Image') {
-            #agent {
-            #    docker {
-            #        image 'docker:latest'
-            #        args '--privileged'
-            #    }
-            #}
             agent any
             steps {
                 sh 'docker build -t mclab7/${IMAGE_NAME}:${IMAGE_TAG} .'
