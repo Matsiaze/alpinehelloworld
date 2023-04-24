@@ -83,10 +83,32 @@ pipeline {
     }
   post {
     success {
-      slackSend (color: '#00FF00', message: "SUCCESSFUL: Job ${env.JOB_NAME} (${env.BUILD_NUMBER})")
+      slackSend (
+        baseUrl: '',
+        teamDomain: 'mclab-space',
+        channel: '#test-jenkins-slack',
+        color: '#00FF00',
+        botUser: false,
+        tokenCredentialId: 'Slack notification',
+        notifyCommitters: false,
+        iconEmoji: '',
+        username: '',
+        timestamp: ''
+      )
     }
     failure {
-      slackSend (color: '#FF0000', message: "FAILED: Job ${env.JOB_NAME} (${env.BUILD_NUMBER})")
+      slackSend (
+        baseUrl: '',
+        teamDomain: 'mclab-space',
+        channel: '#test-jenkins-slack',
+        color: '#FF0000',
+        botUser: false,
+        tokenCredentialId: 'Slack notification',
+        notifyCommitters: false,
+        iconEmoji: '',
+        username: '',
+        timestamp: ''
+      )
     }
   }
 }
