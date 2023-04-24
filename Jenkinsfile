@@ -94,6 +94,7 @@ pipeline {
         iconEmoji: '',
         username: '',
         timestamp: ''
+        message: "Build successful!"
       )
     }
     failure {
@@ -108,6 +109,7 @@ pipeline {
         iconEmoji: '',
         username: '',
         timestamp: ''
+        message: "Build failed"
       )
     }
   }
