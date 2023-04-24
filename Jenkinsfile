@@ -1,3 +1,5 @@
+/* Import shared Library */
+@Library('Matsiaze-shared-library')
 pipeline {
     environment {
       IMAGE_NAME = 'myalpine-jenkins'
@@ -82,35 +84,10 @@ pipeline {
         }
     }
   post {
-    success {
-      slackSend (
-        baseUrl: '',
-        teamDomain: 'mclab-space',
-        channel: '#test-jenkins-slack',
-        color: '#00FF00',
-        botUser: false,
-        tokenCredentialId: 'slack-mclab-space',
-        notifyCommitters: false,
-        iconEmoji: '',
-        username: '',
-        timestamp: '',
-        message: 'Build successful!'
-      )
-    }
-    failure {
-      slackSend (
-        baseUrl: '',
-        teamDomain: 'mclab-space',
-        channel: '#test-jenkins-slack',
-        color: '#FF0000',
-        botUser: false,
-        tokenCredentialId: 'slack-mclab-space',
-        notifyCommitters: false,
-        iconEmoji: '',
-        username: '',
-        timestamp: '',
-        message: 'Build failed'
-      )
+    always {
+      script {
+	slackNotifier currentBuild.result
+      }
     }
   }
 }
