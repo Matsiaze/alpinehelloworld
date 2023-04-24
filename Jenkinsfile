@@ -93,7 +93,7 @@ pipeline {
         notifyCommitters: false,
         iconEmoji: '',
         username: '',
-        timestamp: ''
+        timestamp: '',
         message: 'Build successful!'
       )
     }
@@ -108,7 +108,7 @@ pipeline {
         notifyCommitters: false,
         iconEmoji: '',
         username: '',
-        timestamp: ''
+        timestamp: '',
         message: 'Build failed'
       )
     }
