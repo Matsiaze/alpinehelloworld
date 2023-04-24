@@ -81,14 +81,14 @@ pipeline {
             }
         }
     }
-    post {
-      success {
-        slacksend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-      }
-      failure {
-        slacksend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME}
+  }
+  post {
+    success {
+      slacksend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+    }
+    failure {
+      slacksend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME}
 [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-      }
     }
   }
 }
